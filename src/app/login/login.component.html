@@ -21,10 +21,10 @@
                    required
                    ngModel
                    name="username"
-                   #userNameVar="ngModel"
-                   [ngClass]="{'is-invalid': (userNameVar.touched || userNameVar.dirty) && !userNameVar.valid }" />
+                   #usernameVar="ngModel"
+                   [ngClass]="{'is-invalid': (usernameVar.touched || usernameVar.dirty) && !usernameVar.valid }" />
             <span class="invalid-feedback">
-              <span *ngIf="userNameVar.errors?.required">
+              <span *ngIf="usernameVar.errors?.required">
                 User name is required.
               </span>
             </span>

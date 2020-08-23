@@ -1,0 +1,58 @@
+{
+  "users": [
+    {
+      "firstName": "Admin",
+      "lastName": "User",
+      "dateOfBirth": "2020-08-23",
+      "email": "admin@gmail.com",
+      "addressLine1": "new street",
+      "addressLine2": "new colony",
+      "city": "new city",
+      "state": "new state",
+      "country": "new country",
+      "zipcode": 1,
+      "userName": "admin",
+      "admin": true,
+      "passwordGroup": {
+        "password": "admin",
+        "confirmPassword": "admin"
+      },
+      "blocked": false,
+      "password": "admin",
+      "id": 1
+    },
+    {
+      "firstName": "sachin",
+      "lastName": "tendulkar",
+      "dateOfBirth": "2020-08-23",
+      "email": "sachintendulkar@gmail.com",
+      "addressLine1": "shanthi colony",
+      "addressLine2": "leelaward zone",
+      "city": "mumbai",
+      "state": "maharashtra",
+      "country": "india",
+      "zipcode": "456456",
+      "userName": "sachin",
+      "admin": false,
+      "passwordGroup": {
+        "password": "asdd",
+        "confirmPassword": "asdd"
+      },
+      "blocked": false,
+      "password": "password",
+      "id": 2
+    }
+  ],
+  "loginAttempts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "count": 0
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "count": 0
+    }
+  ]
+}

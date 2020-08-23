@@ -1,0 +1,24 @@
+<mat-toolbar color="primary">
+  <div>
+      <a routerLink="/home">~planview~</a>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+      <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+          <li *ngIf="!isMessageDisplayed">
+            <a (click)="displayMessages()">Show Messages</a>
+          </li>
+          <li *ngIf="isMessageDisplayed">
+            <a (click)="hideMessages()">Hide Messages</a>
+          </li>
+          <li *ngIf="isLoggedIn">
+            <a>Welcome {{ userName }}</a>
+          </li>
+          <li *ngIf="!isLoggedIn">
+              <a routerLink="/login">Login</a>
+          </li>
+          <li *ngIf="isLoggedIn">
+            <a (click)="logOut()">Log Out</a>
+          </li>
+      </ul>
+  </div>
+</mat-toolbar>

@@ -1,32 +1,38 @@
-import { LoginAttemptsService } from './../login/loginAttempts.service';
-import { LoginService } from './../login/login.service';
 import { UserService } from './user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { IUser } from './user.model';
-import { MessageService } from '../messages/message.service';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html'
+  templateUrl: './user-edit.component.html'
 })
-export class UserComponent implements OnInit
+export class UserEditComponent implements OnInit
 {
   userFormGroup: FormGroup = new FormGroup({});
   passwordGroup: FormGroup = new FormGroup({});
   passwordMessage: string;
   admin = false;
   maxDate = maximumDate();
+  updateUser: IUser;
 
   constructor(private formBuilder: FormBuilder,
               private userService: UserService,
               private router: Router,
-              private loginService: LoginService,
-              private loginAttemptsService: LoginAttemptsService,
-              private messageService: MessageService) { }
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    if (id != null) {
+      this.userService.getByID(id).toPromise().then((response) => {
+        console.log('response for id', response);
+        this.updateUser = response as IUser;
+      }).catch((err) => {
+        console.error(err);
+      });
+    }
+
     this.userFormGroup = this.formBuilder.group({
       firstName: ['', [Validators.required, Validators.minLength(2), Validators.pattern('^[a-zA-Z]+$')]],
       lastName: ['', [Validators.required, Validators.minLength(2)]],
@@ -47,33 +53,9 @@ export class UserComponent implements OnInit
     });
   }
 
-  save(): void {
-    console.log(this.userFormGroup.errors);
-    const password = this.userFormGroup.value.passwordGroup.password;
-
-    //since it is only used for validation deleting out whole passwordGroup
-    delete this.userFormGroup.value.passwordGroup;
-
-    const user = this.userFormGroup.value;
-    user.password = password;
-    user.blocked = false;
-    if (this.userFormGroup.value.admin === '')
-    {
-      user.admin = false;
-    }
-    this.userService.create(user).subscribe(response => {
-      const savedUser = response as IUser;
-      this.loginService.currentUser = savedUser;
-      this.loginService.isAdmin = savedUser.admin;
-      this.loginAttemptsService.create(savedUser.id);
-
-      this.messageService.addMessage(`User: ${user.userName} logged in`);
-
-      this.userService.get().subscribe((data) => {
-        this.loginService.users = data;
-        this.router.navigateByUrl('/home');
-      });
-    });
+  update(id: number, updateUser: IUser) {
+    console.log('UpdatedUser: ', updateUser);
+    return this.userService.update(id, updateUser);
   }
 
 }

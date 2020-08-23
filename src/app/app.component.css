@@ -7,6 +7,10 @@
   color: #007ACC
 }
 
+main {
+  padding: 10px;
+}
+
 /* Spinner */
 .spinner {
   font-size:300%;

@@ -1,0 +1,28 @@
+<div class="user-list-table">
+<table>
+  <thead>
+      <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Date Of Birth</th>
+          <th>Email</th>
+          <th>Username</th>
+          <th>Action</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let user of users">
+          <td>{{user.id}}</td>
+          <td>{{user.firstName}} {{user.lastName}}</td>
+          <td>{{user.dateOfBirth}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.userName}}</td>
+          <td>
+            <button *ngIf="user.blocked === true" type="button" (click)="redirectToUnblock(user.id)">Unblock</button>
+            <button type="button" (click)="redirectToDetails(user.id)">Edit/View</button>
+            <button type="button" (click)="redirectToDelete(user.id)">Remove</button>
+          </td>
+      </tr>
+  </tbody>
+</table>
+</div>

@@ -1,8 +1,8 @@
-export interface User
+export interface IUser
 {
   id: number;
-  firstname: string;
-  lastname: string;
+  firstName: string;
+  lastName: string;
   dateOfBirth: string;
   email: string;
   addressLine1: string;
@@ -11,7 +11,8 @@ export interface User
   state: string;
   country: string;
   zipcode: number;
-  username: string;
+  userName: string;
+  admin: boolean;
   password: string;
-  confirmPassword: string;
+  blocked: boolean;
 }

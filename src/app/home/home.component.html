@@ -1,0 +1,36 @@
+<!-- Admin View -->
+<section *ngIf="isAdmin" fxLayout="column" fxFlexAlign="stretch">
+  <div fxFlexAlign="center">
+    <p>Welcome to the Material Angular Planview Application</p>
+  </div>
+  <div fxFlexAlign="center"><p>This account allows you to manage users and work assigments</p></div>
+  <mat-tab-group>
+      <mat-tab label="Registered Users"> 
+         <app-user-list></app-user-list>
+      </mat-tab>
+      <mat-tab label="Create WorkItem & WorkAssignment">
+        <p>Creates WorkItem And WorkAssignment.</p>
+      </mat-tab>
+      <mat-tab label="Assign Created Work To User">
+        <p>Assigning Work To User.</p>
+      </mat-tab>
+  </mat-tab-group>
+</section>
+
+<!-- User View -->
+<section *ngIf="!isAdmin && !(isAdmin===null)" fxLayout="column" fxFlexAlign="stretch">
+  <div fxFlexAlign="center">
+    <p>Welcome to the Material Angular Planview Application</p>
+  </div>
+
+  <div fxFlexAlign="center"><p>This account allows you to submit time spent on your work assignments</p></div>
+</section>
+
+<!-- Default View -->
+<section *ngIf="isAdmin===null" fxLayout="column" fxFlexAlign="stretch">
+  <div fxFlexAlign="center">
+    <p>Welcome to the Material Angular Planview Application</p>
+  </div>
+
+  <div fxFlexAlign="center"><p>This application works for a time sheet submisison medium between jobAdmin and workers</p></div>
+</section>

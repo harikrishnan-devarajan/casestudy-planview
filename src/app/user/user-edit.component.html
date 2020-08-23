@@ -1,8 +1,7 @@
 <div class="card">
   <div class="card-header">
-    Sign Up And Register Now !
+    Edit User Details
   </div>
-
 
   <div class="card-body">
     <form novalidate #userForm="ngForm"
@@ -17,6 +16,7 @@
                  type="text"
                  placeholder="First Name (required)"
                  formControlName="firstName"
+                 [(ngModel)]=updateUser.firstName
                  [ngClass]="{'is-invalid': (userFormGroup.get('firstName').touched ||
                                             userFormGroup.get('firstName').dirty) &&
                                             !userFormGroup.get('firstName').valid }" />
@@ -43,6 +43,7 @@
                  type="text"
                  placeholder="Last Name (required)"
                  formControlName="lastName"
+                 [(ngModel)]=updateUser.lastName
                  [ngClass]="{'is-invalid': (userFormGroup.get('lastName').touched ||
                                             userFormGroup.get('lastName').dirty) &&
                                             !userFormGroup.get('lastName').valid }" />
@@ -69,6 +70,7 @@
                  type="date"
                  placeholder="DateOfBirth"
                  formControlName="dateOfBirth"
+                 [(ngModel)]=updateUser.dateOfBirth
                  [max]="maxDate" />
           <span class="invalid-feedback">
             <span *ngIf="userFormGroup.get('dateOfBirth').errors?.max">
@@ -87,6 +89,7 @@
                   type="email"
                   placeholder="Email (required)"
                   formControlName="email"
+                  [(ngModel)]=updateUser.email
                   [ngClass]="{'is-invalid': (userFormGroup.get('email').touched ||
                                             userFormGroup.get('email').dirty) &&
                                             !userFormGroup.get('email').valid }" />
@@ -109,7 +112,8 @@
                  id="addressLine1"
                  type="text"
                  placeholder="addressLine1"
-                 formControlName="addressLine1" />
+                 formControlName="addressLine1"
+                 [(ngModel)]=updateUser.addressLine1 />
         </div>
       </div>
 
@@ -121,7 +125,8 @@
                  id="addressLine2"
                  type="text"
                  placeholder="addressLine2"
-                 formControlName="addressLine2" />
+                 formControlName="addressLine2"
+                 [(ngModel)]=updateUser.addressLine2 />
         </div>
       </div>
 
@@ -133,7 +138,8 @@
                  id="city"
                  type="text"
                  placeholder="city"
-                 formControlName="city" />
+                 formControlName="city"
+                 [(ngModel)]=updateUser.city />
           <span class="invalid-feedback">
             <span *ngIf="userFormGroup.get('city').errors?.pattern">
               Only Alphabets allowed.
@@ -150,7 +156,8 @@
                  id="state"
                  type="text"
                  placeholder="state"
-                 formControlName="state" />
+                 formControlName="state"
+                 [(ngModel)]=updateUser.state />
           <span class="invalid-feedback">
             <span *ngIf="userFormGroup.get('state').errors?.pattern">
               Only Alphabets allowed.
@@ -167,7 +174,8 @@
                  id="country"
                  type="text"
                  placeholder="country"
-                 formControlName="country" />
+                 formControlName="country"
+                 [(ngModel)]=updateUser.country />
           <span class="invalid-feedback">
             <span *ngIf="userFormGroup.get('city').errors?.pattern">
               Only Alphabets allowed.
@@ -184,7 +192,8 @@
                  id="Zipcode"
                  type="number"
                  placeholder="zipcode"
-                 formControlName="zipcode" />
+                 formControlName="zipcode"
+                 [(ngModel)]=updateUser.zipcode />
         </div>
       </div>
 
@@ -197,6 +206,7 @@
                  type="text"
                  placeholder="UserName (required)"
                  formControlName="userName"
+                 [(ngModel)]=updateUser.userName
                  [ngClass]="{'is-invalid': (userFormGroup.get('userName').touched ||
                                             userFormGroup.get('userName').dirty) &&
                                             !userFormGroup.get('userName').valid }" />
@@ -218,6 +228,7 @@
           <input class="form-control"
                  id="admin"
                  type="checkbox" checked=false
+                 [(ngModel)]=updateUser.admin
                  placeholder="admin"
                  formControlName="admin" />
         </div>
@@ -233,6 +244,7 @@
                    type="password"
                    placeholder="Password (required)"
                    formControlName="password"
+                   [(ngModel)]=updateUser.password
                    [ngClass]="{'is-invalid': (userFormGroup.get('passwordGroup.password').touched ||
                                             userFormGroup.get('passwordGroup.password').dirty) &&
                                             !userFormGroup.get('passwordGroup.password').valid }" />
@@ -256,6 +268,7 @@
                    type="password"
                    placeholder="Confirm Password"
                    formControlName="confirmPassword"
+                   [(ngModel)]=updateUser.password
                    [ngClass]="{'is-invalid': userFormGroup.get('passwordGroup').errors ||
                                              ((userFormGroup.get('passwordGroup.confirmPassword').touched ||
                                              userFormGroup.get('passwordGroup.confirmPassword').dirty) &&
@@ -273,15 +286,14 @@
         <div class="offset-md-2 col-md-4">
           <button class="btn btn-primary mr-3"
                   type="button"
-                  (click)="save()"
+                  (click)="update(updateUser.id, updateUser)"
                   style="width:80px"
                   [title]="userFormGroup.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
                   [disabled]="!userFormGroup.valid">
-            Save
+            Update
             </button>
         </div>
       </div>
     </form>
-
   </div>
 </div>
