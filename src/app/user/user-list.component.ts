@@ -38,6 +38,7 @@ export class UserListComponent implements OnInit {
         response => response );
 
       const loginAttempt: ILoginAttempt = this.loginService.getLoginAttempt(id);
+      loginAttempt.count = 0;
       this.loginAttemptService.update(loginAttempt.id, loginAttempt);
 
       this.getAllUsers().subscribe((data) => {

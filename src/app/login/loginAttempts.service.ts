@@ -39,7 +39,6 @@ export class LoginAttemptsService {
   }
 
   update(id: number, loginAttempt: ILoginAttempt) {
-    loginAttempt.count = 0;
     console.log('Updating LoginAttempts: ' + JSON.stringify(loginAttempt));
     return this.http.put<ILoginAttempt>(this.apiServer + '/loginAttempts/' + id, JSON.stringify(loginAttempt), this.httpOptions)
     .pipe(
