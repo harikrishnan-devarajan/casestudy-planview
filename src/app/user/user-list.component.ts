@@ -55,10 +55,6 @@ export class UserListComponent implements OnInit {
     this.router.navigateByUrl('/user/' + id).then( response =>
       response
     );
-    this.getAllUsers().subscribe((data) => {
-      this.users = data;
-      this.router.navigateByUrl('/home');
-    });
   }
 
   public redirectToDelete = (id: number) => {

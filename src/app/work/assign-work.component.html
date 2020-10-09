@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class="card-body">
+    <form [formGroup]="assignWorkForm" (ngSubmit)="save()" novalidate>
+      <fieldset>
+
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label"
+                 for="userId">User Id - Name</label>
+          <div class="col-md-8">
+            <select  formControlName="userId">
+              <option *ngFor="let user of users"
+              [value]="user.id">{{user.id}} - {{user.firstName}} {{user.lastName}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-2 col-form--label"
+                 for="workItemCodes">WorkItem</label>
+
+          <div class="col-md-8">
+            <select  formControlName="workItemCodes">
+              <option *ngFor="let workItem of workItems"
+              [value]="workItem.code">{{workItem.code}}/{{workItem.description}} - {{workItem.workTypeCode}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 offset-md-2">
+            <button type="submit">Assign WorkItem</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+

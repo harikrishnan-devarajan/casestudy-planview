@@ -1,0 +1,32 @@
+<div class="user-worksheet-list-table">
+  <table>
+    <thead>
+        <tr>
+            <th>UserName</th>
+            <th>WorkWeek</th>
+            <th>WorkHours</th>
+            <th>WorkItems</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let worksheet of userWorkSheets">
+            <td>{{worksheet.userName}}</td>
+            <td>{{worksheet.workWeek}}</td>
+            <td>{{worksheet.workHours}}</td>
+            <td>
+              <tr *ngFor="let workitem of workItems">
+                <td *ngFor="let workItemCode of worksheet.workItemCodes">
+                  <div *ngIf="workitem.code === workItemCode">
+                    {{workitem.code}}/{{workitem.description}} - {{workitem.workTypeCode}}
+                  </div>
+                </td>
+              </tr>
+            </td>
+            <td>
+              <button type="button" (click)="approove(worksheet.id)">Approve</button>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+  </div>

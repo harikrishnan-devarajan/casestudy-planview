@@ -1,3 +1,9 @@
+import { UserWorkSheetListComponent } from './work/user-worksheet-list.component';
+import { UserWorkSheetComponent } from './work/user-worksheet.component';
+import { WorkService } from './work/work.service';
+import { AssignWorkComponent } from './work/assign-work.component';
+import { WorkItemComponent } from './work/work-item.component';
+import { WorkTypeComponent } from './work/work-type.component';
 import { LoginAttemptsService } from './login/loginAttempts.service';
 import { UserEditComponent } from './user/user-edit.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,7 +22,6 @@ import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './navigation/header/header.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './PageNoutFoundComponent';
 import { UserComponent } from './user/user.component';
@@ -37,7 +42,12 @@ import { MessageModule } from './messages/message.module';
     UserComponent,
     UserListComponent,
     HeaderComponent,
-    UserEditComponent
+    UserEditComponent,
+    WorkTypeComponent,
+    WorkItemComponent,
+    AssignWorkComponent,
+    UserWorkSheetComponent,
+    UserWorkSheetListComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +61,7 @@ import { MessageModule } from './messages/message.module';
     MatToolbarModule,
     MatTabsModule
   ],
-  providers: [LoginService, UserService, LoginAttemptsService],
+  providers: [LoginService, UserService, LoginAttemptsService, WorkService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -22,25 +22,21 @@
       "id": 1
     },
     {
-      "firstName": "sachin",
-      "lastName": "tendulkar",
-      "dateOfBirth": "2020-08-23",
-      "email": "sachintendulkar@gmail.com",
-      "addressLine1": "shanthi colony",
-      "addressLine2": "leelaward zone",
-      "city": "mumbai",
-      "state": "maharashtra",
-      "country": "india",
-      "zipcode": "456456",
-      "userName": "sachin",
+      "firstName": "manojkumar",
+      "lastName": "rajkumar",
+      "dateOfBirth": "2020-09-01",
+      "email": "bjsimbu@gmail.com",
+      "addressLine1": "New St",
+      "addressLine2": "Canal Road",
+      "city": "Chennai",
+      "state": "Tamilnadu",
+      "country": "India",
+      "zipcode": "",
+      "userName": "manojkumar",
       "admin": false,
-      "passwordGroup": {
-        "password": "asdd",
-        "confirmPassword": "asdd"
-      },
+      "password": "manojkumar",
       "blocked": false,
-      "password": "password",
-      "id": 2
+      "id": 3
     }
   ],
   "loginAttempts": [
@@ -50,9 +46,46 @@
       "count": 0
     },
     {
-      "id": 2,
-      "userId": 2,
+      "id": 3,
+      "userId": 3,
       "count": 0
+    }
+  ],
+  "worktype": [
+    {
+      "code": "ADMN001",
+      "description": "Administration Works",
+      "id": 1
+    }
+  ],
+  "workitem": [
+    {
+      "code": "OPRTNS001",
+      "description": "Operations-Management",
+      "workTypeCode": "ADMN001",
+      "id": 1
+    }
+  ],
+  "assignwork": [
+    {
+      "id": 1,
+      "userId": 3,
+      "workItemCodes": [
+        "OPRTNS001"
+      ]
+    }
+  ],
+  "userworksheet": [
+    {
+      "id": 1,
+      "userId": 3,
+      "userName": "manojkumar",
+      "workWeek": "2020-W41",
+      "workItemCodes": [
+        "OPRTNS001"
+      ],
+      "workHours": 35,
+      "status": "Approved"
     }
   ]
 }

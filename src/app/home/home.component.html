@@ -5,14 +5,18 @@
   </div>
   <div fxFlexAlign="center"><p>This account allows you to manage users and work assigments</p></div>
   <mat-tab-group>
-      <mat-tab label="Registered Users"> 
+      <mat-tab label="Registered Users">
          <app-user-list></app-user-list>
       </mat-tab>
-      <mat-tab label="Create WorkItem & WorkAssignment">
-        <p>Creates WorkItem And WorkAssignment.</p>
+      <mat-tab label="Create Worktype & WorkItem">
+        <app-work-type></app-work-type>
+        <app-work-item></app-work-item>
       </mat-tab>
-      <mat-tab label="Assign Created Work To User">
-        <p>Assigning Work To User.</p>
+      <mat-tab label="Assign Work To User">
+        <app-assign-work></app-assign-work>
+      </mat-tab>
+      <mat-tab label="Approve Work To User">
+        <app-user-worksheet-list></app-user-worksheet-list>
       </mat-tab>
   </mat-tab-group>
 </section>
@@ -22,8 +26,7 @@
   <div fxFlexAlign="center">
     <p>Welcome to the Material Angular Planview Application</p>
   </div>
-
-  <div fxFlexAlign="center"><p>This account allows you to submit time spent on your work assignments</p></div>
+  <app-user-worksheet></app-user-worksheet>
 </section>
 
 <!-- Default View -->

@@ -26,6 +26,7 @@ export class LoginService {
 
   logout(): void {
     this.currentUser = null;
+    this.isAdmin = null;
   }
 
   isRegisteredUser(userName: string, password: string): boolean
