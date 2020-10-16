@@ -1,3 +1,4 @@
+import { AuthguardService } from './login/authguard.service';
 import { UserWorkSheetComponent } from './work/user-worksheet.component';
 import { MessageComponent } from './messages/message.component';
 import { UserListComponent } from './user/user-list.component';
@@ -15,16 +16,16 @@ import { UserWorkSheetListComponent } from './work/user-worksheet-list.component
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'user', component: UserComponent },
-  { path: 'user/:id', component: UserEditComponent },
-  { path: 'messages', component: MessageComponent },
-  { path: 'users', component: UserListComponent },
-  { path: 'worktype', component: WorkTypeComponent },
-  { path: 'workitem', component: WorkItemComponent },
-  { path: 'assignwork', component: AssignWorkComponent },
-  { path: 'userworksheet', component: UserWorkSheetComponent },
-  { path: 'userworksheets', component: UserWorkSheetListComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthguardService] },
+  { path: 'user', component: UserComponent, canActivate: [AuthguardService] },
+  { path: 'user/:id', component: UserEditComponent, canActivate: [AuthguardService] },
+  { path: 'messages', component: MessageComponent, canActivate: [AuthguardService] },
+  { path: 'users', component: UserListComponent, canActivate: [AuthguardService] },
+  { path: 'worktype', component: WorkTypeComponent, canActivate: [AuthguardService] },
+  { path: 'workitem', component: WorkItemComponent, canActivate: [AuthguardService] },
+  { path: 'assignwork', component: AssignWorkComponent, canActivate: [AuthguardService] },
+  { path: 'userworksheet', component: UserWorkSheetComponent, canActivate: [AuthguardService] },
+  { path: 'userworksheets', component: UserWorkSheetListComponent, canActivate: [AuthguardService] },
   { path: '*', component: PageNotFoundComponent }
 ];
 

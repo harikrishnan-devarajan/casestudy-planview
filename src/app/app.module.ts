@@ -1,3 +1,4 @@
+import { AuthguardService } from './login/authguard.service';
 import { UserWorkSheetListComponent } from './work/user-worksheet-list.component';
 import { UserWorkSheetComponent } from './work/user-worksheet.component';
 import { WorkService } from './work/work.service';
@@ -61,7 +62,7 @@ import { MessageModule } from './messages/message.module';
     MatToolbarModule,
     MatTabsModule
   ],
-  providers: [LoginService, UserService, LoginAttemptsService, WorkService],
+  providers: [LoginService, UserService, LoginAttemptsService, WorkService, AuthguardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
