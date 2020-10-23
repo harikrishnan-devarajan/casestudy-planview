@@ -1,3 +1,4 @@
+import { ReportsInterceptor } from './reports/reports.interceptor';
 import { AuthguardService } from './login/authguard.service';
 import { UserWorkSheetListComponent } from './work/user-worksheet-list.component';
 import { UserWorkSheetComponent } from './work/user-worksheet.component';
@@ -12,7 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -62,7 +63,8 @@ import { MessageModule } from './messages/message.module';
     MatToolbarModule,
     MatTabsModule
   ],
-  providers: [LoginService, UserService, LoginAttemptsService, WorkService, AuthguardService],
+  providers: [LoginService, UserService, LoginAttemptsService, WorkService, AuthguardService,
+    {provide: HTTP_INTERCEPTORS, useClass: ReportsInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
