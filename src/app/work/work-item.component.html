@@ -25,6 +25,18 @@
             </div>
           </div>
 
+          <div class="form-group row">
+            <label class="col-form--label"
+                   for="workItemCodes">WorkType</label>
+
+            <div class="col-md-8">
+              <select  formControlName="workTypeCode">
+                <option *ngFor="let workType of workTypes"
+                [value]="workType.code">{{workType.code}} - {{workType.description}}</option>
+              </select>
+            </div>
+          </div>
+
           <div class="row">
             <div class="col-md-4 offset-md-2">
               <button type="submit">Save</button>

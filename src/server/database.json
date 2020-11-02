@@ -37,6 +37,57 @@
       "password": "manojkumar",
       "blocked": false,
       "id": 3
+    },
+    {
+      "firstName": "premila",
+      "lastName": "selvaraj",
+      "dateOfBirth": "1993-04-06",
+      "email": "premila123@gmail.com",
+      "addressLine1": "New St",
+      "addressLine2": "Canal Road",
+      "city": "Chennai",
+      "state": "Tamilnadu",
+      "country": "India",
+      "zipcode": 600076,
+      "userName": "premila",
+      "admin": false,
+      "password": "premila",
+      "blocked": false,
+      "id": 4
+    },
+    {
+      "firstName": "SILAMBARASAN",
+      "lastName": "BALASUNDARAM",
+      "dateOfBirth": "2020-10-05",
+      "email": "bjsimbu@gmail.com",
+      "addressLine1": "New St",
+      "addressLine2": "Canal Road",
+      "city": "Chennai",
+      "state": "Tamilnadu",
+      "country": "India",
+      "zipcode": 1,
+      "userName": "bjsimbu",
+      "admin": false,
+      "password": "bjsimbu",
+      "blocked": false,
+      "id": 5
+    },
+    {
+      "firstName": "SARATH",
+      "lastName": "SOCRATIES",
+      "dateOfBirth": "2020-10-05",
+      "email": "sarath@gmail.com",
+      "addressLine1": "New St",
+      "addressLine2": "Canal Road",
+      "city": "Chennai",
+      "state": "Tamilnadu",
+      "country": "India",
+      "zipcode": 600001,
+      "userName": "sarath",
+      "admin": false,
+      "password": "sarath",
+      "blocked": false,
+      "id": 6
     }
   ],
   "loginAttempts": [
@@ -49,6 +100,21 @@
       "id": 3,
       "userId": 3,
       "count": 0
+    },
+    {
+      "id": 4,
+      "userId": 4,
+      "count": 0
+    },
+    {
+      "id": 5,
+      "userId": 5,
+      "count": 0
+    },
+    {
+      "id": 6,
+      "userId": 6,
+      "count": 0
     }
   ],
   "worktype": [
@@ -56,6 +122,11 @@
       "code": "ADMN001",
       "description": "Administration Works",
       "id": 1
+    },
+    {
+      "code": "HR001",
+      "description": "HumanResoruces Works",
+      "id": 2
     }
   ],
   "workitem": [
@@ -86,6 +157,17 @@
       ],
       "workHours": 35,
       "status": "Approved"
+    },
+    {
+      "id": 2,
+      "userId": 3,
+      "userName": "manojkumar",
+      "workWeek": "2020-W46",
+      "workItemCodes": [
+        "OPRTNS001"
+      ],
+      "workHours": 35,
+      "status": "Submitted"
     }
   ]
 }

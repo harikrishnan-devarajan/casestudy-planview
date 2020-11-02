@@ -19,7 +19,7 @@ export class ReportsInterceptor implements HttpInterceptor {
     const dateTime = Date.now();
     this.user = this.loginService.currentUser;
 
-    if (this.user === undefined) {
+    if (this.user === undefined || this.user === null) {
       console.log('ReportsInterceptor (url/timestamp) - ' + req.url + ' / ' + dateTime);
     } else {
       if (this.createReportOrUpdateReportsMap(apiname)) {

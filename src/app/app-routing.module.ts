@@ -17,7 +17,7 @@ import { UserWorkSheetListComponent } from './work/user-worksheet-list.component
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthguardService] },
-  { path: 'user', component: UserComponent, canActivate: [AuthguardService] },
+  { path: 'user', component: UserComponent },
   { path: 'user/:id', component: UserEditComponent, canActivate: [AuthguardService] },
   { path: 'messages', component: MessageComponent, canActivate: [AuthguardService] },
   { path: 'users', component: UserListComponent, canActivate: [AuthguardService] },
