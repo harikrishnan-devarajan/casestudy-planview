@@ -1,3 +1,4 @@
+import { SendMessageComponent } from './messages/send-message.component';
 import { ReportsInterceptor } from './reports/reports.interceptor';
 import { AuthguardService } from './login/authguard.service';
 import { UserWorkSheetListComponent } from './work/user-worksheet-list.component';
@@ -49,7 +50,8 @@ import { MessageModule } from './messages/message.module';
     WorkItemComponent,
     AssignWorkComponent,
     UserWorkSheetComponent,
-    UserWorkSheetListComponent
+    UserWorkSheetListComponent,
+    SendMessageComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +65,12 @@ import { MessageModule } from './messages/message.module';
     MatToolbarModule,
     MatTabsModule
   ],
-  providers: [LoginService, UserService, LoginAttemptsService, WorkService, AuthguardService,
+  providers: [
+    LoginService,
+    UserService,
+    LoginAttemptsService,
+    WorkService,
+    AuthguardService,
     {provide: HTTP_INTERCEPTORS, useClass: ReportsInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })

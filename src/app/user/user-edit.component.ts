@@ -1,7 +1,7 @@
 import { UserService } from './user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { IUser } from './user.model';
 
 @Component({
@@ -18,7 +18,6 @@ export class UserEditComponent implements OnInit
 
   constructor(private formBuilder: FormBuilder,
               private userService: UserService,
-              private router: Router,
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {

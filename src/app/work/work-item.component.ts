@@ -15,9 +15,9 @@ export class WorkItemComponent implements OnInit {
   workTypes: IWorkType[];
 
   constructor(
-    public fb: FormBuilder,
+    private fb: FormBuilder,
     private router: Router,
-    public workService: WorkService
+    private workService: WorkService
   ){ }
 
   ngOnInit() {

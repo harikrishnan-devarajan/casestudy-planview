@@ -4,12 +4,12 @@
   </div>
 
   <div class="card-body">
-    <form [formGroup]="assignWorkForm" (ngSubmit)="save()" novalidate>
+    <form [formGroup]="sendMessageForm" (ngSubmit)="send()" novalidate>
       <fieldset>
 
         <div class="form-group row">
           <label class="col-md-2 col-form-label"
-                 for="userId">User Id - Name</label>
+                 for="userId">Recipient</label>
           <div class="col-md-8">
             <select  formControlName="userId">
               <option *ngFor="let user of users"
@@ -19,24 +19,23 @@
         </div>
 
         <div class="form-group row">
-          <label class="col-md-2 col-form--label"
-                 for="workItemCodes">WorkItem</label>
+          <label class="col-form--label"
+                for="message">Message</label>
 
           <div class="col-md-8">
-            <select  formControlName="workItemCodes">
-              <option *ngFor="let workItem of workItems"
-              [value]="workItem.code">{{workItem.code}}/{{workItem.description}} - {{workItem.workTypeCode}}</option>
-            </select>
+            <textarea formControlName="message" class="form-control"></textarea>
           </div>
         </div>
 
         <div class="form-group row mb-2">
           <div class="offset-md-2 col-md-4">
-            <button class="btn btn-primary mr-3" style="width:80px" type="submit">Assign WorkItem</button>
+            <button class="btn btn-primary mr-3"
+                    type="submit"
+                    style="width:80px">Send</button>
           </div>
         </div>
+
       </fieldset>
     </form>
   </div>
 </div>
-

@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { IUser } from '../user/user.model';
 import { MessageService } from '../messages/message.service';
 import { ILoginAttempt } from './loginAttempts.model';
+import { IMessage } from '../messages/message.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ export class LoginService {
   users: IUser[] = [];
   loginAttempts: ILoginAttempt[] = [];
   userBlockedFlag = false;
+  messages: IMessage[];
 
   get isLoggedIn(): boolean {
     return this.currentUser != null;
@@ -31,6 +33,7 @@ export class LoginService {
 
   isRegisteredUser(userName: string, password: string): boolean
   {
+    console.log('LEN '+this.messages.length);
     let userExist = false;
     for (const user of this.users) {
       if (user.userName === userName && user.password === password) {
@@ -41,7 +44,7 @@ export class LoginService {
 
         if (user.admin === true) {
           this.messageService.addMessage(`Admin User: ${this.currentUser.userName} login`);
-        } else{
+        } else {
           this.messageService.addMessage(`User: ${this.currentUser.userName} logged in`);
         }
       }
@@ -80,6 +83,14 @@ export class LoginService {
       }
       //User Does Not Exists --end ELSE
     }
+
+    // Set Corresponding user messages to message modal
+    this.messages.forEach( message => {
+      if (this.currentUser.id === message.userId) {
+        this.messageService.addMessage(message.message);
+      }
+    });
+
     return userExist;
   }
 

@@ -18,10 +18,10 @@ export class AssignWorkComponent implements OnInit {
   users: IUser[];
 
   constructor(
-    public fb: FormBuilder,
+    private fb: FormBuilder,
     private router: Router,
-    public workService: WorkService,
-    public userService: UserService
+    private workService: WorkService,
+    private userService: UserService
   ){ }
 
   ngOnInit() {

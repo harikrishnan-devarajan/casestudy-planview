@@ -47,6 +47,7 @@ export class HeaderComponent implements OnInit {
 
   logOut(): void {
     this.loginService.logout();
+    this.messageService.clearMessages();
     this.router.navigateByUrl('/');
   }
 

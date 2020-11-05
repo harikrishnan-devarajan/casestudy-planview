@@ -16,7 +16,7 @@ export class UserWorkSheetListComponent implements OnInit {
 
   constructor(
     private router: Router,
-    public workService: WorkService
+    private workService: WorkService
   ){ }
 
   ngOnInit(): void {

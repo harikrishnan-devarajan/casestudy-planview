@@ -1,3 +1,4 @@
+import { MessageService } from './../messages/message.service';
 import { ILoginAttempt } from './loginAttempts.model';
 import { LoginAttemptsService } from './loginAttempts.service';
 import { Component, OnInit } from '@angular/core';
@@ -18,10 +19,14 @@ export class LoginComponent implements OnInit {
   constructor(private loginService: LoginService,
               private userService: UserService,
               private router: Router,
-              private loginAttemptsService: LoginAttemptsService) { }
+              private loginAttemptsService: LoginAttemptsService,
+              private messageService: MessageService) { }
   ngOnInit(): void {
     this.userService.get().subscribe((data: IUser[]) => {
       this.loginService.users = data;
+    });
+    this.messageService.getAllMessages().subscribe( data => {
+      this.loginService.messages = data;
     });
   }
 

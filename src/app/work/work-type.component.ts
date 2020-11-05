@@ -20,9 +20,9 @@ export class WorkTypeComponent implements OnInit {
 }
 
 constructor(
-  public fb: FormBuilder,
+  private fb: FormBuilder,
   private router: Router,
-  public workService: WorkService
+  private workService: WorkService
 ){ }
 
 save() {

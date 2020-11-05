@@ -1,49 +1,47 @@
-<div style="float: right;">
-  <div class="card">
-    <div class="card-header">
-      {{pageTitle}}
-    </div>
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
 
-    <div class="card-body">
-      <form [formGroup]="workItemForm" (ngSubmit)="save()" novalidate>
-        <fieldset>
+  <div class="card-body">
+    <form [formGroup]="workItemForm" (ngSubmit)="save()" novalidate>
+      <fieldset>
 
-          <div class="form-group row">
-            <label class="col-form-label"
-                   for="code">Code</label>
-            <div class="col-md-8">
-              <input type="text" formControlName="code" class="form-control">
-            </div>
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label"
+                 for="code">Code</label>
+          <div class="col-md-8">
+            <input type="text" formControlName="code" class="form-control">
           </div>
+        </div>
 
-          <div class="form-group row">
-            <label class="col-form--label"
-                   for="description">Description</label>
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form--label"
+                 for="description">Description</label>
 
-            <div class="col-md-8">
-              <input type="text" formControlName="description" class="form-control">
-            </div>
+          <div class="col-md-8">
+            <input type="text" formControlName="description" class="form-control">
           </div>
+        </div>
 
-          <div class="form-group row">
-            <label class="col-form--label"
-                   for="workItemCodes">WorkType</label>
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form--label"
+                 for="workItemCodes">WorkType</label>
 
-            <div class="col-md-8">
-              <select  formControlName="workTypeCode">
-                <option *ngFor="let workType of workTypes"
-                [value]="workType.code">{{workType.code}} - {{workType.description}}</option>
-              </select>
-            </div>
+          <div class="col-md-8">
+            <select  formControlName="workTypeCode">
+              <option *ngFor="let workType of workTypes"
+              [value]="workType.code">{{workType.code}} - {{workType.description}}</option>
+            </select>
           </div>
+        </div>
 
-          <div class="row">
-            <div class="col-md-4 offset-md-2">
-              <button type="submit">Save</button>
-            </div>
+        <div class="form-group row mb-2">
+          <div class="offset-md-2 col-md-4">
+            <button class="btn btn-primary mr-3" style="width:80px" type="submit">Save</button>
           </div>
-        </fieldset>
-      </form>
-    </div>
+        </div>
+      </fieldset>
+    </form>
   </div>
 </div>
